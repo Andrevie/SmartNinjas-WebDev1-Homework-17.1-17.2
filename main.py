@@ -22,15 +22,15 @@ def result():
     secret_number = int(request.cookies.get("secret_number"))
 
     if guess == secret_number:
-        message = "Correct! The secret number is {0}".format(str(secret_number))
+        message = "Jap jap jap! Die Geheimzahl ist {0}".format(str(secret_number))
         response = make_response(render_template("result.html", message=message))
         response.set_cookie("secret_number", str(random.randint(1, 30)))  # set the new secret number
         return response
     elif guess > secret_number:
-        message = "Your guess is not correct... try something smaller."
+        message = "FALSCH!! Versuch's mit ner kleineren Nummer!"
         return render_template("result.html", message=message)
     elif guess < secret_number:
-        message = "Your guess is not correct... try something bigger."
+        message = "Nope! Versuch's mit ner größeren Nummer!"
         return render_template("result.html", message=message)
 
 
