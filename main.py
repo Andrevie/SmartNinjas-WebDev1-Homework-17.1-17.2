@@ -10,7 +10,7 @@ def index():
 
     response = make_response(render_template("index.html"))
     if not secret_number:  # if not, create a new cookie
-        new_secret = random.randint(1, 30)
+        new_secret = random.randint(1, 10)
         response.set_cookie("secret_number", str(new_secret))
 
     return response
